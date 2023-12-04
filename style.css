@@ -1,0 +1,79 @@
+
+
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body{
+    background-color: lightblue;
+}
+
+h1{
+    color: white;
+    padding: 18px 0;
+    font-size: 1.75 rem;
+    background-color: rgb(0, 102, 255);
+}
+.containers{
+    display: flex;
+    padding: 30px;
+}
+
+.weather-input input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    padding: 0 15px;
+    margin: 10px 0 20px;
+}
+.weather-input .separator{
+    height: 1px;
+    width: 100%;
+    margin: 25px 0;
+    background-color: #bbb;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.weather-input .separator::before{
+    content: "or";
+    color: #6C757D;
+    padding: 0 15px;
+    background-color: lightblue;
+}
+.weather-input button{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 4px;
+}
+.current-weather{
+    color: #fff;
+    padding: 20px 70px 20px 20px;
+    background-color: rgb(0, 102, 255);
+    display: flex;
+    border-radius: 5px;
+    justify-content: space-between;
+    height: 230px;
+}
+.current-weather h2{
+    font-size: 1.7rem;
+}
+.weather-data h4{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 12px;
+}
+.current-weather .icon img{
+    max-width: 120px;
+    margin-top: -15px;
+}
+.current-weather .icon h4{
+    margin-top: -10px;
+    text-transform: capitalize;
+}
