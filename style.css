@@ -53,6 +53,7 @@ h1{
     border-radius: 4px;
 }
 .current-weather{
+    width: 100%;
     color: #fff;
     padding: 20px 70px 20px 20px;
     background-color: rgb(0, 102, 255);

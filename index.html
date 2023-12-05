@@ -35,6 +35,17 @@
     function citySearch(){
         weatherSearch(loc.value)
     }
+
+    function currentLocation(){
+        navigator.geolocation.getCurrentPosition(success=>latAndLong(success))
+    }
+    function latAndLong(latlong){
+        lat = latlong.coords.latitude
+        lon = latlong.coords.longitude
+        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}`)
+        .then(response=>response.json()).then(area=>weatherSearch(area.city))
+    }
+
     function weatherSearch(searchLocation) {   
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchLocation}&appid=5b4bee0ba241d092159faf007e166080`)
             .then(data => data.json()).then(out => displayWeather(out))
@@ -54,25 +65,16 @@
             <h4>Temperature: ${temperature}</h4>
             <h4>Wind Speed: ${windspeed}</h4>
             <h4>Humidity: ${humidity}</h4>
-
+            
         `
         icons.innerHTML = 
         `
             <img src="https://openweathermap.org/img/wn/${icon}@4x.png" alt="">
             <h4>${description}</h4>
-
         `
     }
 
-    function currentLocation(){
-        navigator.geolocation.getCurrentPosition(success=>latAndLong(success))
-    }
-    function latAndLong(latlong){
-        lat = latlong.coords.latitude
-        lon = latlong.coords.longitude
-        fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}`)
-        .then(response=>response.json()).then(area=>weatherSearch(area.city))
-    }
+    
 
 </script>
 
